@@ -43,8 +43,8 @@ def store(date, url, title, name):
 		curr+=1
 	for i in range(0, count):
 		total+=num[i]*multiplier[i]
-	lol=Info(date, url, title, total, name, temp)
-	return lol
+	storedInfo=Info(date, url, title, total, name, temp)
+	return storedInfo
 
 def sort(list):
 	sorted=False
@@ -203,94 +203,94 @@ def click1(event, url, tag_name):
 	res.tag_config(tag_name, background='white')
 	res.update_idletasks()
 	
-def b1(lol):
+def b1(storedInfo):
 	global Websites
 	Websites=[]
 	getWebsites()
 	Websites=sort(Websites)
-	lol.delete(1.0, END)
+	storedInfo.delete(1.0, END)
 	now=datetime.datetime.now()
 	time=[int(now.year), int(now.month), int(now.day), int(now.hour), int(now.minute), int(now.second)]
 	multiplier=[31556926, 2629744, 86400, 3600, 60, 1]
-	hhabp=0	
+	temporary=0	
 	for i in range(0, 6):
-		hhabp+=multiplier[i]*time[i]
+		temporary+=multiplier[i]*time[i]
 	for i in range(0, len(Websites)):
-		if hhabp-getattr(Websites[i], "seconds")<=86400:
+		if temporary-getattr(Websites[i], "seconds")<=86400:
 			url=getattr(Websites[i], "url")
 			tag_name="link"+str(i)
-			lol.insert(END, getattr(Websites[i], "name")+"\n")
-			lol.insert(END, getattr(Websites[i], "title")+"\n")
+			storedInfo.insert(END, getattr(Websites[i], "name")+"\n")
+			storedInfo.insert(END, getattr(Websites[i], "title")+"\n")
 			callback=(lambda event, url=url, tag_name=tag_name:click1(event, url, tag_name))
-			lol.tag_bind(tag_name, "<Button-1>", callback)
-			lol.insert(END, getattr(Websites[i], "url")+"\n", (tag_name,))
-			lol.insert(END, getattr(Websites[i], "date")+"\n"+"\n")
-def b2(lol):
+			storedInfo.tag_bind(tag_name, "<Button-1>", callback)
+			storedInfo.insert(END, getattr(Websites[i], "url")+"\n", (tag_name,))
+			storedInfo.insert(END, getattr(Websites[i], "date")+"\n"+"\n")
+def b2(storedInfo):
 	global Websites
 	Websites=[]
 	getWebsites()
 	Websites=sort(Websites)
-	lol.delete(1.0, END)
+	storedInfo.delete(1.0, END)
 	now=datetime.datetime.now()
 	time=[int(now.year), int(now.month), int(now.day), int(now.hour), int(now.minute), int(now.second)]
 	multiplier=[31556926, 2629744, 86400, 3600, 60, 1]
-	hhabp=0	
+	temporary=0	
 	for i in range(0, 6):
-		hhabp+=multiplier[i]*time[i]
+		temporary+=multiplier[i]*time[i]
 	for i in range(0, len(Websites)):
-		if hhabp-getattr(Websites[i], "seconds")<=259200:
+		if temporary-getattr(Websites[i], "seconds")<=259200:
 			url=getattr(Websites[i], "url")
 			tag_name="link"+str(i)
-			lol.insert(END, getattr(Websites[i], "name")+"\n")
-			lol.insert(END, getattr(Websites[i], "title")+"\n")
+			storedInfo.insert(END, getattr(Websites[i], "name")+"\n")
+			storedInfo.insert(END, getattr(Websites[i], "title")+"\n")
 			callback=(lambda event, url=url, tag_name=tag_name:click1(event, url, tag_name))
-			lol.tag_bind(tag_name, "<Button-1>", callback)
-			lol.insert(END, getattr(Websites[i], "url")+"\n", (tag_name,))
-			lol.insert(END, getattr(Websites[i], "date")+"\n"+"\n")
+			storedInfo.tag_bind(tag_name, "<Button-1>", callback)
+			storedInfo.insert(END, getattr(Websites[i], "url")+"\n", (tag_name,))
+			storedInfo.insert(END, getattr(Websites[i], "date")+"\n"+"\n")
 
-def b3(lol):
+def b3(storedInfo):
 	global Websites
 	Websites=[]
 	getWebsites()
 	Websites=sort(Websites)
-	lol.delete(1.0, END)
+	storedInfo.delete(1.0, END)
 	now=datetime.datetime.now()
 	time=[int(now.year), int(now.month), int(now.day), int(now.hour), int(now.minute), int(now.second)]
 	multiplier=[31556926, 2629744, 86400, 3600, 60, 1]
-	hhabp=0	
+	temporary=0	
 	for i in range(0, 6):
-		hhabp+=multiplier[i]*time[i]
+		temporary+=multiplier[i]*time[i]
 	for i in range(0, len(Websites)):
-		if hhabp-getattr(Websites[i], "seconds")<=604800:
+		if temporary-getattr(Websites[i], "seconds")<=604800:
 			url=getattr(Websites[i], "url")
 			tag_name="link"+str(i)
-			lol.insert(END, getattr(Websites[i], "name")+"\n")
-			lol.insert(END, getattr(Websites[i], "title")+"\n")
+			storedInfo.insert(END, getattr(Websites[i], "name")+"\n")
+			storedInfo.insert(END, getattr(Websites[i], "title")+"\n")
 			callback=(lambda event, url=url, tag_name=tag_name:click1(event, url, tag_name))
-			lol.tag_bind(tag_name, "<Button-1>", callback)
-			lol.insert(END, getattr(Websites[i], "url")+"\n", (tag_name,))
-			lol.insert(END, getattr(Websites[i], "date")+"\n"+"\n")
-def b4(lol):
+			storedInfo.tag_bind(tag_name, "<Button-1>", callback)
+			storedInfo.insert(END, getattr(Websites[i], "url")+"\n", (tag_name,))
+			storedInfo.insert(END, getattr(Websites[i], "date")+"\n"+"\n")
+def b4(storedInfo):
 	global Websites
 	Websites=[]
 	getWebsites()
 	Websites=sort(Websites)	
-	lol.delete(1.0, END)
+	storedInfo.delete(1.0, END)
 	now=datetime.datetime.now()
 	time=[int(now.year), int(now.month), int(now.day), int(now.hour), int(now.minute), int(now.second)]
 	multiplier=[31556926, 2629744, 86400, 3600, 60, 1]
-	hhabp=0	
+	temporary=0	
 	for i in range(0, 6):
-		hhabp+=multiplier[i]*time[i]
+		temporary+=multiplier[i]*time[i]
 	for i in range(0, len(Websites)):
 			url=getattr(Websites[i], "url")
 			tag_name="link"+str(i)
-			lol.insert(END, getattr(Websites[i], "name")+"\n")
-			lol.insert(END, getattr(Websites[i], "title")+"\n")
+			storedInfo.insert(END, getattr(Websites[i], "name")+"\n")
+			storedInfo.insert(END, getattr(Websites[i], "title")+"\n")
 			callback=(lambda event, url=url, tag_name=tag_name:click1(event, url, tag_name))
-			lol.tag_bind(tag_name, "<Button-1>", callback)
-			lol.insert(END, getattr(Websites[i], "url")+"\n", (tag_name,))
-			lol.insert(END, getattr(Websites[i], "date")+"\n"+"\n")
+			storedInfo.tag_bind(tag_name, "<Button-1>", callback)
+			storedInfo.insert(END, getattr(Websites[i], "url")+"\n", (tag_name,))
+			storedInfo.insert(END, getattr(Websites[i], "date")+"\n"+"\n")
 
 class Checkbar(Frame):
 	def __init__(self, parent=None, picks=[], side=LEFT, anchor=W):
@@ -308,19 +308,19 @@ class Checkbar(Frame):
 def allstates(): 
 	return list(checklist.state())
 
-def herh():
+def chooser():
 	global term
 	global stuff
 	term=e.get().encode("utf8")
 	stuff=e.get().encode("gb2312")
-	sharsp=allstates()
-	if sharsp[0]==1:
+	choice=allstates()
+	if choice[0]==1:
 		b1(text)
-	elif sharsp[0]==2:
+	elif choice[0]==2:
 		b2(text)
-	elif sharsp[0]==3:
+	elif choice[0]==3:
 		b3(text)
-	elif sharsp[0]==4:
+	elif choice[0]==4:
 		b4(text)
 
 root=Tk()
@@ -334,7 +334,7 @@ Label(text='Keyword').pack()
 e.pack()
 checklist=Checkbar(root, [u'24\u5c0f\u65f6\u4e4b\u5185', u'\u6700\u8fd1\u4e09\u5929', u'\u6700\u8fd1\u4e00\u4e2a\u661f\u671f', u'\u5168\u90e8'+"   "])
 checklist.pack()
-Button(root, text='Search', command=herh).pack()
+Button(root, text='Search', command=chooser).pack()
 text.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=text.yview)
 text.pack(anchor=NW)
